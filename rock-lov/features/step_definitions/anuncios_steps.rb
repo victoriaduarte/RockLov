@@ -27,8 +27,7 @@ Quando('submeto o cadastro desse item') do
     find("#category").find('option', text: @anuncio[:categoria]).select_option
     find("input[placeholder^=Valor]").set @anuncio[:preco]
 
-    click_button " Cadastrar"
-    sleep 10
+    click_button "Cadastrar"
 end
   
 Então('devo ver esse item no meu Dashboard') do
@@ -36,5 +35,4 @@ Então('devo ver esse item no meu Dashboard') do
     expect(anuncios).to have_content @anuncio[:nome]
     expect(anuncios).to have_content "R$#{@anuncio[:preco]}/dia"
     expect(anuncios).to have_css "[style^=background-image]"
-    sleep 10
 end

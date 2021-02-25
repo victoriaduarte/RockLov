@@ -1,6 +1,6 @@
 require 'mongo'
 
-Mongo::Logger.logger = Logger.new("./logs/mongo.log")
+Mongo::Logger.logger = Logger.new("./logs/mongo.log") # arquivo salva o log
 
 class MongoDB
     attr_accessor :users, :equipos # agora as coleções "users" e "equipos" são propriedades da classe "MongoDB"
@@ -13,12 +13,12 @@ class MongoDB
 
     def remove_user(email)
         # Deleta o email no db automaticamente antes de preencher o cadastro, assim, o teste sempre passará
-        @users.delete_many({email: email})
+        @users.delete_many({email: email}) # deleta todos os registros com uma determinada condição (email)
     end
 
     def get_user(email)
-        user = @users.delete_many({email: email}).first
-        puts user[:_id]
+        user = @users.find({email: email}).first
+        return user[:_id]
     end
          
     def remove_equipo(name, email)
