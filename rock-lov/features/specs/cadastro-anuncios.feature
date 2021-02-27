@@ -7,7 +7,7 @@ Funcionalidade: Cadastro de Anúncios
     @cadastro_anuncio
     Cenario: Novo equipo
 
-        Dado que estou logado como "vique@hotmail.com" e "pwd123"
+        Dado que estou logado como "victoria@hotmail.com" e "pwd123"
             E que acesso o formulario de cadastro de anuncios
             E que eu tenho o seguinte equipamento:
             | thumb     | fender-sb.jpg |
