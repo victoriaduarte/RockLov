@@ -14,6 +14,7 @@ Funcionalidade: Login
         
     @login_tentativa
     Esquema do Cenario: Tentar logar
+    
         Dado que acesso a página principal
         Quando submeto minhas credenciais com "<email_input>" e "<senha_input>"
         Então vejo a mensagem de alerta: "<mensagem_output>"
