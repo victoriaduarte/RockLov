@@ -1,0 +1,5 @@
+--- # informa que é um arquivo .yml
+
+# desabilita o Cucumber Report (link do relatório no terminal)
+# mantém apenas o relatório formato BDD
+default: --publish-quiet 
