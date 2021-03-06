@@ -1,18 +1,25 @@
-
-
 class EquiposPage
-    include Capybara::DSL
+  include Capybara::DSL
 
-    def create(equipo)
-        # checkpoint cmo timeout explícito
-        page.has_css?("#equipoForm")
+  def create(equipo)
+    # checkpoint cmo timeout explícito
+    page.has_css?("#equipoForm")
 
-        thumb = Dir.pwd + "/features/support/fixtures/images/" + equipo[:thumb]
-        find("#thumbnail input[type=file]", visible: false).set thumb
-        find("input[placeholder$=equipamento]").set equipo[:nome]
-        find("#category").find('option', text: equipo[:categoria]).select_option
-        find("input[placeholder^=Valor]").set equipo[:preco]
-    
-        click_button "Cadastrar"
-    end
+    upload(equipo[:thumb]) if equipo[:thumb].length > 0
+
+    find("input[placeholder$=equipamento]").set equipo[:nome]
+    select_cat(equipo[:categoria]) if equipo[:categoria].length > 0
+    find("input[placeholder^=Valor]").set equipo[:preco]
+
+    click_button "Cadastrar"
+  end
+
+  def select_cat(cat)
+    find("#category").find("option", text: cat).select_option
+  end
+
+  def upload(file_name)
+    thumb = Dir.pwd + "/features/support/fixtures/images/" + file_name
+    find("#thumbnail input[type=file]", visible: false).set thumb
+  end
 end
