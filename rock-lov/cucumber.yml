@@ -1,5 +1,10 @@
 --- # informa que é um arquivo .yml
 
-# desabilita o Cucumber Report (link do relatório no terminal)
-# mantém apenas o relatório formato BDD
-default: --publish-quiet 
+# --publish-quiet desabilita o Cucumber Report (link do relatório no terminal)
+default: --publish-quiet -p allure -p bdd # gera relatório no formato allure e o BDD no terminal
+
+# profiles (-p)
+bdd: -f pretty
+dots: -f progress
+html: -f html -o logs/report.html # -o: output (diretório de saída)
+allure: --format AllureCucumber::CucumberFormatter --out=logs
