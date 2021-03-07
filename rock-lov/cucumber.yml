@@ -1,10 +1,12 @@
 --- # informa que é um arquivo .yml
 
 # --publish-quiet desabilita o Cucumber Report (link do relatório no terminal)
-default: --publish-quiet -p allure -p bdd # gera relatório no formato allure e o BDD no terminal
+default: --publish-quiet -p allure -p bdd -p local # gera relatório no formato allure e o BDD no terminal
 
 # profiles (-p)
 bdd: -f pretty
 dots: -f progress
 html: -f html -o logs/report.html # -o: output (diretório de saída)
 allure: --format AllureCucumber::CucumberFormatter --out=logs
+local: CONFIG=local.yml
+hmg: CONFIG=hmg.yml
