@@ -9,7 +9,7 @@ Funcionalidade: Login
     Cenario: Login do usuário
 
         Dado que acesso a página principal
-        Quando submeto minhas credenciais com "victoria@hotmail.com" e "pwd123"
+        Quando submeto minhas credenciais com "papito@hotmail.com" e "pwd123"
         Então sou redirecionado para o Dashboard
         
     @login_tentativa
