@@ -3,12 +3,20 @@ require "mongo"
 Mongo::Logger.logger = Logger.new("./logs/mongo.log") # arquivo salva o log
 
 class MongoDB
-  attr_accessor :users, :equipos # agora as coleções "users" e "equipos" são propriedades da classe "MongoDB"
+  attr_accessor :client, :users, :equipos # coleções "client", "users" e "equipos" são propriedades/atributos da classe "MongoDB"
 
   def initialize # construtor
-    client = Mongo::Client.new("mongodb://rocklov-db:27017/rocklov")
+    @client = Mongo::Client.new("mongodb://rocklov-db:27017/rocklov")
     @users = client[:users]
     @equipos = client[:equipos]
+  end
+
+  def drop_danger
+    client.database.drop
+  end
+
+  def insert_users(docs)
+    @users.insert_many(docs) # insere todos os users no before do spec_helper
   end
 
   def remove_user(email)
