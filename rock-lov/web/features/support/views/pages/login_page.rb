@@ -5,7 +5,7 @@ class LoginPage
     visit "/"
   end
 
-  def login(email, password) # agrupa os métodos dos elementos em uma funcionalidade
+  def with(email, password) # agrupa os métodos dos elementos em uma funcionalidade
     find("input[placeholder='Seu email']").set email
     find("input[type=password]").set password
     click_button "Entrar"

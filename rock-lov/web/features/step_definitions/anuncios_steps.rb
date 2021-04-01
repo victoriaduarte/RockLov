@@ -2,7 +2,7 @@ Dado("Login com {string} e {string}") do |email, password|
   @email = email
 
   @login_page.open
-  @login_page.login(email, password)
+  @login_page.with(email, password)
 
   # checkpoint para garantir que estamos no dashboard
   expect(@dash_page.on_dash?).to be true
@@ -64,7 +64,7 @@ Quando("não confirmo a solicitação") do
   @dash_page.cancel_removal
 end
 
-Então("não devo ver esse item no meu dashboard") do
+Então("não devo ver esse item no meu Dashboard") do
   expect(
     @dash_page.has_no_equipo?(@equipo[:name])
   ).to be true
