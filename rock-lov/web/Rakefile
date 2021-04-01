@@ -17,12 +17,14 @@ task :local_seeds do # ambiente local
     { name: "Victoria Duarte", email: "victoria@hotmail.com", password: to_md5("pwd123") },
     { name: "Papito Fernando", email: "papito@hotmail.com", password: to_md5("pwd123") },
     { name: "Anderson Silva", email: "spider@hotmail.com", password: to_md5("pwd123") },
+    { name: "Maria Locataria", email: "maria@locataria.com", password: to_md5("pwd123") },
+    { name: "João Anunciante", email: "joao@anunciante.com", password: to_md5("pwd123") },
   ]
 
   MongoDB.new.drop_danger
   MongoDB.new.insert_users(users)
 
-  #sh "cucumber" # executa o cucumber
+  # sh "cucumber" # executa o cucumber
 end
 
 task :hmg_seeds do # ambiente de homologação
@@ -32,6 +34,8 @@ task :hmg_seeds do # ambiente de homologação
     { name: "Victoria Duarte", email: "victoria@hotmail.com", password: to_md5("pwd123") },
     { name: "Papito Fernando", email: "papito@hotmail.com", password: to_md5("pwd123") },
     { name: "Anderson Silva", email: "spider@hotmail.com", password: to_md5("pwd123") },
+    { name: "Maria Locataria", email: "maria@locataria.com", password: to_md5("pwd123") },
+    { name: "João Anunciante", email: "joao@anunciante.com", password: to_md5("pwd123") },
   ]
 
   MongoDB.new.drop_danger

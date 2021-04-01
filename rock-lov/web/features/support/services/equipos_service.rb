@@ -12,4 +12,15 @@ class EquiposService < BaseService
       },
     )
   end
+
+  def booking(equipo_id, user_locator_id)
+    return self.class.post(
+             "/equipos/#{equipo_id}/bookings",
+             body: { date: Time.now.strftime("%d/%m/%Y") }.to_json, # data do sistema no formato dd/mm/yyyy
+             headers: {
+               "content-type": "application/json",
+               "user_id": user_locator_id,
+             },
+           )
+  end
 end
