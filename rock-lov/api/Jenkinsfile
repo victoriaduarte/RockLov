@@ -8,12 +8,12 @@ pipeline {
     stages {
         stage('Prep') {
             steps {
-                sh 'cd api && bundle install'
+                sh 'cd rock-lov/api && bundle install'
             }
         }
         stage('Testing') {
             steps {
-                sh 'cd api && rspec'
+                sh 'cd rock-lov/api && rspec'
             }
         }
     }
