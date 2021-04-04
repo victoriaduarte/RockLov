@@ -24,7 +24,7 @@ task :local_seeds do # ambiente local
   MongoDB.new.drop_danger
   MongoDB.new.insert_users(users)
 
-  sh "cucumber" # executa o cucumber
+  sh "cucumber -p jenkins" # executa o cucumber
 end
 
 task :hmg_seeds do # ambiente de homologação
