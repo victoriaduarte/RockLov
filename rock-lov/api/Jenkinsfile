@@ -15,8 +15,12 @@ pipeline {
         stage('Testing') {
             steps {
                 sh 'cd rock-lov/api && rspec'
-                junit 'rock-lov/api/logs/report.xml'
             }
+        }
+    }
+    post {
+        always {
+            junit 'rock-lov/api/logs/report.xml'
         }
     }
 }
